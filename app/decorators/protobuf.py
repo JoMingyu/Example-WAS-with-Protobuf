@@ -1,6 +1,6 @@
 from functools import wraps
 
-from flask import Response, after_this_request, abort, g, request
+from flask import Response, abort, g, request
 
 
 def receive_protobuf(model):

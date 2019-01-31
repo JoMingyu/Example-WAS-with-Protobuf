@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package post;
+
+message PostCreateRequest {
+    string content = 1;
+}
+
+message PostCreateResponse {
+    int32 id = 1;
+}
+
+message PostListResponse {
+    message Post {
+        int32 id = 1;
+        string content = 2;
+    }
+
+    repeated Post posts = 1;
+}
