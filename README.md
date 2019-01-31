@@ -52,7 +52,7 @@ print(response.SerializeToString())  # b'\n\x8f\x02eyJ0eXAiOiJKV1QiLCJhbGciOiJ..
 
 ## 결론
 1. .proto 파일 갖다가 컴파일 돌리면 DTO 만들어주는 건 아이디어 진짜 좋다고 생각했다. 특히 안드로이드에서도 된다는게..
-2. validation rule을 넣을 수 있는 방법이 있으면 좋을 것 같다. 그렇게 되면 정말 .proto 파일 정의하는 거 하나만으로 DTO + 요청 데이터 validation + 주석 좀 달고 API 문서로도 써먹을 수 있을듯.
+2. validation rule을 넣을 수 있는 방법이 있으면 좋을 것 같다. 그렇게 되면 정말 .proto 파일 정의하는 거 하나만으로 DTO + 요청 데이터 validation + 주석 좀 달고 API 문서로도 써먹을 수 있을테니, API 짜면서 항상 번거로웠던 validation과 문서화 작업의 고통을 많이 덜어줄듯.
 3. 개발팀에서 이걸 쓴다고 한다면 러닝커브가 무조건 생길텐데, 러닝커브 때문에 protobuf를 쓰는 걸 포기할 정도는 아닐 것 같다.
 4. 근데 굳이 protobuf에 익숙해지려고 노력하고 싶지는 않다. 기대가 컸어서 그런건진 몰라도 WAS 관점에서는 좀 아쉬웠다.
 5. flask에서 쓰기 좋게 쪼만한 라이브러리 하나 만들어야겠다.
