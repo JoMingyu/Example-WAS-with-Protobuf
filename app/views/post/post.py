@@ -1,7 +1,7 @@
 from flask import g
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
-from app.decorators.protobuf import receive_protobuf, response_protobuf
+from app.decorators.protobuf import receive_protobuf_message, response_with_protobuf
 from app.models.post import TblPosts
 from app.views.base import BaseResource
 from app.views.post.post_pb2 import (
@@ -11,8 +11,8 @@ from app.views.post.post_pb2 import (
 
 
 class Post(BaseResource):
-    @receive_protobuf(PostCreateRequest)
-    @response_protobuf
+    @receive_protobuf_message(PostCreateRequest)
+    @response_with_protobuf
     @jwt_required
     def post(self):
         payload = g.request
@@ -25,9 +25,9 @@ class Post(BaseResource):
             id=id
         )
 
-        return response.SerializeToString()
+        return response
 
-    @response_protobuf
+    @response_with_protobuf
     def get(self):
         posts = TblPosts.select().execute()
 
@@ -35,4 +35,4 @@ class Post(BaseResource):
             posts=[PostListResponse.Post(id=post.id, content=post.content) for post in posts]
         )
 
-        return response.SerializeToString()
+        return response

@@ -1,9 +1,10 @@
 from functools import wraps
 
 from flask import Response, abort, g, request
+from google.protobuf.message import Message
 
 
-def receive_protobuf(model):
+def receive_protobuf_message(model):
     def decorator(fn):
         @wraps(fn)
         def wrapper(*args, **kwargs):
@@ -21,12 +22,14 @@ def receive_protobuf(model):
     return decorator
 
 
-def response_protobuf(fn):
+def response_with_protobuf(fn):
     @wraps(fn)
     def wrapper(*args, **kwargs):
         response = fn(*args, **kwargs)
 
-        if isinstance(response, bytes):
+        if isinstance(response, Message):
+            response_obj = Response(response.SerializeToString())
+        elif isinstance(response, bytes):
             response_obj = Response(response)
         elif isinstance(response, tuple):
             response_obj = Response(response[0], *response[1:])

@@ -2,14 +2,14 @@ from flask import Response, abort, g
 from peewee import IntegrityError
 from werkzeug.security import generate_password_hash
 
-from app.decorators.protobuf import receive_protobuf
+from app.decorators.protobuf import receive_protobuf_message
 from app.models.user import TblUsers
 from app.views.base import BaseResource
 from app.views.user.user_pb2 import SignupRequest
 
 
 class Signup(BaseResource):
-    @receive_protobuf(SignupRequest)
+    @receive_protobuf_message(SignupRequest)
     def post(self):
         payload = g.request
 
