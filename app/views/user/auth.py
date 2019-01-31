@@ -32,3 +32,4 @@ class Auth(BaseResource):
         )
 
         return response.SerializeToString()
+        # TODO 그냥 protobuf instance만 넘기면 되도록 만들자

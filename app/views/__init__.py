@@ -3,7 +3,8 @@ from flask_restful import Api
 
 
 def route(flask_app: Flask):
-    from app.views.user import signup
+    from app.views.user import auth, signup
+    from app.views.post import post
 
     handle_exception_func = flask_app.handle_exception
     handle_user_exception_func = flask_app.handle_user_exception
@@ -16,7 +17,9 @@ def route(flask_app: Flask):
     api_v1 = Api(api_v1_blueprint)
 
     # - route
-    api_v1.add_resource(signup.Signup, '/user')
+    api_v1.add_resource(auth.Auth, '/auth')
+    api_v1.add_resource(signup.Signup, '/signup')
+    api_v1.add_resource(post.Post, '/post')
 
     # - register blueprint
     flask_app.register_blueprint(api_v1_blueprint)
