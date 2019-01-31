@@ -11,7 +11,7 @@ termcolor = "*"
 flask-restful = "*"
 arrow = "*"
 cryptography = "*"
-protobuf = "*"
+protobuf = "==3.6.0"
 
 [dev-packages]
 
