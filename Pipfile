@@ -12,6 +12,7 @@ flask-restful = "*"
 arrow = "*"
 cryptography = "*"
 protobuf = "==3.6.0"
+flask-jwt-extended = "*"
 
 [dev-packages]
 

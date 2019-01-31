@@ -10,6 +10,7 @@ def register_extensions(flask_app: Flask):
     from app import extensions
 
     extensions.db = MySQLDatabase(**flask_app.config['DB_SETTING'])
+    extensions.jwt.init_app(flask_app)
 
 
 def register_views(flask_app: Flask):
