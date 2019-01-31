@@ -1,5 +1,6 @@
 from flask import abort, g
 from peewee import IntegrityError
+from werkzeug.security import generate_password_hash
 
 from app.decorators.protobuf import receive_protobuf
 from app.models.user import TblUsers
@@ -19,7 +20,7 @@ class Signup(BaseResource):
         try:
             TblUsers.insert(
                 id=id,
-                pw=pw,
+                pw=generate_password_hash(pw),
                 name=name
             ).execute()
         except IntegrityError:
