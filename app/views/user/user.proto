@@ -7,3 +7,12 @@ message SignupRequest {
     string pw = 2;
     string name = 3;
 }
+
+message AuthRequest {
+    string id = 1;
+    string pw = 2;
+}
+
+message AuthResponse {
+    string accessToken = 1;
+}

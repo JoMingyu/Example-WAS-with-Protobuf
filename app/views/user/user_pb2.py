@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='user',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\nuser.proto\x12\x04user\"5\n\rSignupRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\n\n\x02pw\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\tb\x06proto3')
+  serialized_pb=_b('\n\nuser.proto\x12\x04user\"5\n\rSignupRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\n\n\x02pw\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\"%\n\x0b\x41uthRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\n\n\x02pw\x18\x02 \x01(\t\"#\n\x0c\x41uthResponse\x12\x13\n\x0b\x61\x63\x63\x65ssToken\x18\x01 \x01(\tb\x06proto3')
 )
 
 
@@ -69,7 +69,78 @@ _SIGNUPREQUEST = _descriptor.Descriptor(
   serialized_end=73,
 )
 
+
+_AUTHREQUEST = _descriptor.Descriptor(
+  name='AuthRequest',
+  full_name='user.AuthRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='user.AuthRequest.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='pw', full_name='user.AuthRequest.pw', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=75,
+  serialized_end=112,
+)
+
+
+_AUTHRESPONSE = _descriptor.Descriptor(
+  name='AuthResponse',
+  full_name='user.AuthResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='accessToken', full_name='user.AuthResponse.accessToken', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=114,
+  serialized_end=149,
+)
+
 DESCRIPTOR.message_types_by_name['SignupRequest'] = _SIGNUPREQUEST
+DESCRIPTOR.message_types_by_name['AuthRequest'] = _AUTHREQUEST
+DESCRIPTOR.message_types_by_name['AuthResponse'] = _AUTHRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SignupRequest = _reflection.GeneratedProtocolMessageType('SignupRequest', (_message.Message,), dict(
@@ -78,6 +149,20 @@ SignupRequest = _reflection.GeneratedProtocolMessageType('SignupRequest', (_mess
   # @@protoc_insertion_point(class_scope:user.SignupRequest)
   ))
 _sym_db.RegisterMessage(SignupRequest)
+
+AuthRequest = _reflection.GeneratedProtocolMessageType('AuthRequest', (_message.Message,), dict(
+  DESCRIPTOR = _AUTHREQUEST,
+  __module__ = 'user_pb2'
+  # @@protoc_insertion_point(class_scope:user.AuthRequest)
+  ))
+_sym_db.RegisterMessage(AuthRequest)
+
+AuthResponse = _reflection.GeneratedProtocolMessageType('AuthResponse', (_message.Message,), dict(
+  DESCRIPTOR = _AUTHRESPONSE,
+  __module__ = 'user_pb2'
+  # @@protoc_insertion_point(class_scope:user.AuthResponse)
+  ))
+_sym_db.RegisterMessage(AuthResponse)
 
 
 # @@protoc_insertion_point(module_scope)
