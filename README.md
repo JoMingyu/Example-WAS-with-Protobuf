@@ -43,7 +43,7 @@ print(response.SerializeToString())  # b'\n\x8f\x02eyJ0eXAiOiJKV1QiLCJhbGciOiJ..
 
 ## 아니 이건 좀;;;
 - protobuf3에선 required가 사라졌다.
-- protobuf 3.6.1버전은 DDL load failed가 뜬다. tensorflow에 이슈가 많이 올라와 있음.
+- Python용 protobuf 라이브러리인 `protobuf`의 3.6.1버전은 DDL load failed가 뜬다. tensorflow에 이슈가 많이 올라와 있음.
 - type hinting을 어떻게 해야 할지 모르겠다. 컴파일하고 나면 그냥 간단한 형태의 DTO가 정의되는 줄 알았건만 리플렉션하고 뭐하고 난리났다. 이건 좀 디깅해봐야할 것 같다.
 - serialize하고 난 후의 proto message는 사람이 읽을 수가 없다. 그냥 보기 어려운 걸 떠나서 JSON처럼 타이핑으로 테스트용 데이터를 만들 수가 없음. 굳이 소스코드 레벨에서 message 객체 만들고 serialize해서 복사해야 함;; Protobuf message generator online 이런거 있으면 좋겠다.
 - validation 용도로 스키마를 작성하고 싶은데, 방법이 없을까? int 타입에 min value/max value, string 타입에 regex같은거 넣을 수 있으면 좋을텐데. 내가 못 찾는건가..
