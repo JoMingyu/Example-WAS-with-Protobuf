@@ -7,6 +7,11 @@ name = "pypi"
 flask = "*"
 peewee = "*"
 pymysql = "*"
+termcolor = "*"
+flask-restful = "*"
+arrow = "*"
+cryptography = "*"
+protobuf = "*"
 
 [dev-packages]
 

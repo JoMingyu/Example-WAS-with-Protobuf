@@ -1,3 +1,3 @@
-from flask_cors import CORS
+from peewee import MySQLDatabase
 
-cors = CORS()
+db: MySQLDatabase = None
