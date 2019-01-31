@@ -21,18 +21,14 @@ class Post(BaseResource):
 
         id = TblPosts.insert(content=content, author_id=get_jwt_identity()).execute()
 
-        response = PostCreateResponse(
+        return PostCreateResponse(
             id=id
         )
-
-        return response
 
     @response_with_protobuf
     def get(self):
         posts = TblPosts.select().execute()
 
-        response = PostListResponse(
+        return PostListResponse(
             posts=[PostListResponse.Post(id=post.id, content=post.content) for post in posts]
         )
-
-        return response

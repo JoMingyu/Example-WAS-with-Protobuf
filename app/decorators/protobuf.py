@@ -8,14 +8,14 @@ def receive_protobuf_message(model):
     def decorator(fn):
         @wraps(fn)
         def wrapper(*args, **kwargs):
-            protobuf_instance = model()
+            message = model()
 
             try:
-                protobuf_instance.ParseFromString(request.data)
+                message.ParseFromString(request.data)
             except TypeError as e:
                 abort(400, e.args)
 
-            g.request = protobuf_instance
+            g.request = message
 
             return fn(*args, **kwargs)
         return wrapper
@@ -33,8 +33,10 @@ def response_with_protobuf(fn):
             response_obj = Response(response)
         elif isinstance(response, tuple):
             response_obj = Response(response[0], *response[1:])
-        else:
+        elif isinstance(response, Response):
             response_obj = response
+        else:
+            raise AssertionError()
 
         response_obj.mimetype = 'application/vnd.google.protobuf'
 
