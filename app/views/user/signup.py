@@ -1,4 +1,4 @@
-from flask import abort, g
+from flask import Response, abort, g
 from peewee import IntegrityError
 from werkzeug.security import generate_password_hash
 
@@ -26,4 +26,4 @@ class Signup(BaseResource):
         except IntegrityError:
             abort(409)
 
-        return {}, 201
+        return Response(None, 201)
